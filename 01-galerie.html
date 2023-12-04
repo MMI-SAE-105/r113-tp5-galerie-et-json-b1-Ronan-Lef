@@ -75,10 +75,13 @@
       }
     </style>
   </head>
-  <body>
+
+  <body x-data="{
+    ImageAffichee: https://picsum.photos/id/237/400/300'
+  }">
     <h1>Galerie</h1>
-    <p>lorem⇥</p>
-    <div class="overlay">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore neque eius possimus, iusto et soluta quos ipsa, voluptatibus amet perspiciatis. Libero repudiandae, nam aut optio rem suscipit eum illo.</p>
+    <div class="overlay" x-show="ImageAffichee">
       <figure>
         <img
           src="https://picsum.photos/id/237/400/300"
