@@ -78,24 +78,13 @@
 
   <body x-data="{
     imageAffichee: null,
-toutesLesImages: [
-    {
-        petite:'https://picsum.photos/id/237/40/60',
-        alt:'chiot'
-        grande:'https://picsum.photos/id/237/400/300',
-        alt:"chiot"
-    },
-    {
-        petite: 'https://picsum.photos/id/238/40/60',
-        alt:"ville"
-        grande: 'https://picsum.photos/id/238/400/300',
-        alt:"ville"
-    },
-  ],
+async toutesLesImages () {
+    const rep = await fetch('images.json');
+    return await rep.json();
   }">
     <h1>Galerie</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore neque eius possimus, iusto et soluta quos ipsa, voluptatibus amet perspiciatis. Libero repudiandae, nam aut optio rem suscipit eum illo.</p>
-    <img src="https://picsum.photos/id/237/40/60" alt="chiot" @click="imageAffichee='https://picsum.photos/id/237/400/300'" />
+    <img src="https://picsum.photos/id/237/40/60" alt="chiot" @click="imageAffichee='https://picsum.photos/id/237/400/300'">
     <div class="overlay" x-show="imageAffichee" alt="ville" @click="imageAffichee=null" @keyup.escape.window="imageAffichee=null">
         <template x-for="uneImage of toutesLesImages">
           <figure>
