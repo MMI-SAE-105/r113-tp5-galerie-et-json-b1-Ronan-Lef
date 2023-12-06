@@ -8,6 +8,14 @@
 </head>
 <body>
     <h1>JSON</h1>
+    <a href="index.html">Menu</a>
     
+    <template x-for="dev in données">
+    
+    <li>
+        <span x-text="dev.nom">nom</span>
+        <a :href="dev.url" x-text="dev.projet">projet</a>
+    </li>
+</template>
 </body>
 </html>
