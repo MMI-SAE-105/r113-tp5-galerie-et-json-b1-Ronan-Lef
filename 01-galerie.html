@@ -78,25 +78,17 @@
     </style>
   </head>
 
-  <body x-data="{
-    imageAffichee: null,
-async toutesLesImages () {
-    const rep = await fetch('images.json');
-    return await rep.json();
-  }">
+  <body x-data="{showImg:''}">
     <h1>Galerie</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore neque eius possimus, iusto et soluta quos ipsa, voluptatibus amet perspiciatis. Libero repudiandae, nam aut optio rem suscipit eum illo.</p>
-    <img src="https://picsum.photos/id/237/40/60" alt="chiot" @click="imageAffichee='https://picsum.photos/id/237/400/300'">
-    <div class="overlay" x-show="imageAffichee" alt="ville" @click="imageAffichee=null" @keyup.escape.window="imageAffichee=null">
-        <template x-for="uneImage of toutesLesImages">
+    <img src="https://picsum.photos/id/237/40/60" alt="chiot" @click="showImg='https://picsum.photos/id/237/400/300'">
+    <img src="https://picsum.photos/id/238/40/60" alt="chiot" @click="showImg='https://picsum.photos/id/238/400/300'">
+    <img src="https://picsum.photos/id/239/40/60" alt="chiot" @click="showImg='https://picsum.photos/id/239/400/300'">
+    <img src="https://picsum.photos/id/240/40/60" alt="chiot" @click="showImg='https://picsum.photos/id/240/400/300'">
+    <div x-show="showImg" class="overlay" @click="showImg=null">
           <figure>
-            <img src="https://picsum.photos/id/237/40/60" alt="chiot" />
+            <img :src="showImg" alt="image" />
           </figure>
-      <figure>
-        <img
-          src="https://picsum.photos/id/237/400/300"
-          alt="image 237... un chiot" />
-      </figure>
     </div>
   </body>
 </html>
