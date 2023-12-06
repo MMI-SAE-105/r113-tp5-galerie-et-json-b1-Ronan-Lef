@@ -86,7 +86,8 @@
     <img src="https://picsum.photos/id/238/40/60" alt="ville" @click="showImg='https://picsum.photos/id/238/400/300'">
     <img src="https://picsum.photos/id/239/40/60" alt="pissenlit" @click="showImg='https://picsum.photos/id/239/400/300'">
     <img src="https://picsum.photos/id/240/40/60" alt="mur" @click="showImg='https://picsum.photos/id/240/400/300'">
-    <div x-show="showImg" class="overlay" @click="showImg=null">
+    <div x-show="showImg" class="overlay" @click="showImg=null"
+    @keyup.escape.window="showImg=null">
           <figure>
             <img :src="showImg" alt="image" />
           </figure>

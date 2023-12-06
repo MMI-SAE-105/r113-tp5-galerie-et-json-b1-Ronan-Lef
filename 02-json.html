@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>JSON</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>JSON</h1>
     <a href="index.html">Menu</a>
-    
-    <template x-for="dev in données">
-    
-    <li>
-        <span x-text="dev.nom">nom</span>
-        <a :href="dev.url" x-text="dev.projet">projet</a>
-    </li>
-</template>
-</body>
+
+    <ul
+      x-data="{
+        async données() {
+            const resp = await fetch('data.json');
+            return await resp.json();
+        },
+    }">
+      <template x-for="dev in données">
+        <li>
+          <span x-text="dev.nom">nom</span>
+          <a :href="dev.url" x-text="dev.projet">projet</a>
+        </li>
+      </template>
+    </ul>
+  </body>
 </html>
